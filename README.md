@@ -1,1 +1,1 @@
-# hse_dwh_course_2023
+# ftda_dwh_course_2023
