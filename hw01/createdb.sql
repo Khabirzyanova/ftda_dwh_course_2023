@@ -1,7 +1,7 @@
 -- #1
 CREATE TABLE manufacturers (
   "manufacturer_id"	SERIAL PRIMARY KEY,
-  "manufacturer_name"	VARCHART(100) NOT NULL
+  "manufacturer_name"	VARCHAR(100) NOT NULL
 );
 
 COPY manufacturers(
@@ -12,7 +12,7 @@ COPY manufacturers(
 -- #2
 CREATE TABLE categories (
   "category_id"		SERIAL PRIMARY KEY,
-  "category_name"	VARCHART(100) NOT NULL
+  "category_name"	VARCHAR(100) NOT NULL
 );
 
 COPY categories(
@@ -25,7 +25,7 @@ CREATE TABLE products (
   "category_id"		BIGINT UNSIGNED,
   "manufacturer_id"	BIGINT UNSIGNED,
   "product_id"		SERIAL PRIMARY KEY,
-  "product_name"	VARCHART(255) NOT NULL
+  "product_name"	VARCHAR(255) NOT NULL
 );
 
 COPY products(
@@ -38,7 +38,7 @@ COPY products(
 -- #4
 CREATE TABLE stores (
   "store_id"		SERIAL PRIMARY KEY,
-  "store_name"		VARCHART(255) NOT NULL
+  "store_name"		VARCHAR(255) NOT NULL
 );
 
 COPY stores(
@@ -49,8 +49,8 @@ COPY stores(
 -- #5
 CREATE TABLE customers (
   "customer_id"		SERIAL PRIMARY KEY,
-  "customer_fname"	VARCHART(100) NOT NULL,
-  "customer_lname"	VARCHART(100) NOT NULL
+  "customer_fname"	VARCHAR(100) NOT NULL,
+  "customer_lname"	VARCHAR(100) NOT NULL
 );
 
 COPY customers(
