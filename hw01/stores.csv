@@ -1,6 +1,6 @@
-,store_id,store_name
-0,10,store_10
-1,11,store_11
-2,12,store_12
-3,13,store_13
-4,14,store_14
+"store_id","store_name"
+10;store_10
+11;store_11
+12;store_12
+13;store_13
+14;store_14
