@@ -1,4 +1,4 @@
-customers_id;customer_fname;customer_lname
+"customers_id";"customer_fname";"customer_lname"
 100;Ivan;Ivanov
 102;Petr;Petrov
 104;Vasilii;Vasiliiev
