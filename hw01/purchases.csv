@@ -1,4 +1,4 @@
-store_id;customers_id;purchase_id;purchase_date
+"store_id";"customers_id";"purchase_id";"purchase_date"
 10;100;430;2023-10-15
 11;102;431;2023-10-15
 12;104;432;2023-10-15
