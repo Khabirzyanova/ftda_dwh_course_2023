@@ -3,4 +3,4 @@
 ## 1. Создаем файл createdb.sql, который соотве
 
 
-![Screenshot](screenshot.png)
+![Screenshot](Screenshot.png)
