@@ -1,6 +1,6 @@
-,category_id,manufacturer_id,product_id,product_name
-0,1,500,100000,mars_bar
-1,2,520,120000,haribo
-2,3,540,140000,toll_house
-3,4,530,160000,hershey_waffles
-4,5,510,180000,raffaello
+"category_id";"manufacturer_id";"product_id";"product_name"
+0;1;500;100000;mars_bar
+1;2;520;120000;haribo
+2;3;540;140000;toll_house
+3;4;530;160000;hershey_waffles
+4;5;510;180000;raffaello
