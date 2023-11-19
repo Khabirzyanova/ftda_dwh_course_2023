@@ -1,26 +1,11 @@
-# version: "1"
-# services:
-#   postgres:
-#     image: postgres:13
-#     environment:
-#       POSTGRES_DB: ${POSTGRES_DB}
-#       POSTGRES_USER: ${POSTGRES_USER}
-#       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-#       PGDATA: ${PGDATA}
-#     volumes:
-#       - .:/var/lib/postgresql/data
-#       - ./createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
-#     ports:
-#       - "5432:5432"
-
-version: '3'
+version: "3.3"
 
 services: # названия сервисов, которые будем использовать при запуске docker-compose
   postgres_master:
     container_name: postgres_master
     image: postgres:15.2  # образ postgres
     restart: always # всегда перезапускается в случае возникновения каких-то ошибок
-    environment: # переменные окружения
+    environment: # переменные окружения (значения в файле .env)
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
