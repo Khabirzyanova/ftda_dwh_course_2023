@@ -74,7 +74,7 @@ COPY price_change(
 
 -- #7
 CREATE TABLE deliveries (
-  "store_id"		SERIAL NOT NULL, -- BIGINT UNSIGNED NOT NULL,
+  "store_id"		SERIAL, -- BIGINT UNSIGNED,
   "product_id"		SERIAL NOT NULL, -- BIGINT UNSIGNED NOT NULL,
   "delivery_date"	DATE NOT NULL,
   "product_count"	SERIAL NOT NULL -- INTEGER UNSIGNED NOT NULL
@@ -104,9 +104,9 @@ COPY purchases(
 
 -- #9
 CREATE TABLE purchase_items (
-  "product_id" 		SERIAL, -- BIGINT UNSIGNED NOT NULL,
-  "purchase_id" 	SERIAL, -- BIGINT UNSIGNED NOT NULL,
-  "product_count" 	SERIAL, -- BIGINT UNSIGNED NOT NULL,
+  "product_id" 		SERIAL NOT NULL, -- BIGINT UNSIGNED NOT NULL,
+  "purchase_id" 	SERIAL NOT NULL, -- BIGINT UNSIGNED NOT NULL,
+  "product_count" 	SERIAL NOT NULL, -- BIGINT UNSIGNED NOT NULL,
   "product_price" NUMERIC(9,2) NOT NULL
 );
 
