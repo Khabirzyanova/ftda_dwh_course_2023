@@ -11,7 +11,7 @@ services: # названия сервисов, которые будем исп�
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       PGDATA: ${PGDATA}
     volumes:
-      - ./data:/var/lib/postgresql/data # место для сохранения данных после остановки контейнера
+      - .:/var/lib/postgresql/data # место для сохранения данных после остановки контейнера
       - ./createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
       - ./data-slave:/var/lib/postgresql/data-slave
       - ./init-script/config/postgres.conf:/etc/postgresql/postgresql.conf
