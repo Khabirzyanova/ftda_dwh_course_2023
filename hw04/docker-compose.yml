@@ -1,0 +1,60 @@
+version: "3.9"
+
+services: # названия сервисов, которые будем использовать при запуске docker-compose
+  postgres_master:
+    container_name: postgres_master
+    image: postgres:14.5  # образ postgres
+    restart: always # всегда перезапускается в случае возникновения каких-то ошибок
+    volumes:
+      - ./data:/var/lib/postgresql/data # место для сохранения данных после остановки контейнера
+      - ./data-slave:/var/lib/postgresql/data-slave
+      - ./init-script/config/postgres.conf:/etc/postgresql/postgresql.conf
+      - ./init-script/config/pg_hba.conf:/etc/postgresql/pg_hba.conf
+      - ./init-script:/etc/postgresql/init-script
+      - ./init-data:/var/lib/postgresql/init-data
+      - ./createdb_new.sql:/docker-entrypoint-initdb.d/createdb_new.sql
+    ports:
+      - "127.0.0.1:5432:5432" # внешний порт : порт внутри контейнера
+    environment: # переменные окружения
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+
+
+  postgres_slave:
+    container_name: postgres_slave
+    image: postgres:14.5
+    restart: always
+    volumes:
+      - ./data-slave:/var/lib/postgresql/data
+      - ./init-script/config/postgres.conf:/etc/postgresql/postgresql.conf
+      - ./init-script/config/pg_hba.conf:/etc/postgresql/pg_hba.conf
+    ports:
+      - "127.0.0.1:5433:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+
+  
+  # # grafana, prometheus, postgres-exporter
+  # grafana:
+  #   image: grafana/grafana
+  #   ports:
+  #     - 3000:3000
+
+  # prometheus:
+  #   image: prom/prometheus
+  #   ports:
+  #     - 9090:9090
+  #   volumes:
+  #     - ./prometheus.yml:/etc/prometheus/prometheus.yml
+
+  # postgres-exporter:
+  #   image: prometheuscommunity/postgres-exporter
+  #   ports:
+  #     - 9187:9187
+  #   environment:
+  #     DATA_SOURCE_NAME: "postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable"
+  #     PG_EXPORTER_EXTEND_QUERY_PATH: "/var/lib/postgresql/queries.yaml"
+  #   links:
+  #     - prometheus

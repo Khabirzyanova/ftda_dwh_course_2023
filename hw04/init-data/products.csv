@@ -1,0 +1,6 @@
+"category_id";"manufacturer_id";"product_id";"product_name";"product_picture_url";"product_description";"product_age_restriction"
+1;500;100000;mars_bar;'https://i.imgur.com/xaZa31d.jpg';'шоколадный батончик';0
+2;520;120000;haribo;'https://i.imgur.com/v2WdSJU.jpg';'золотые мармеладные мишки';0
+3;540;140000;toll_house;'https://i.imgur.com/RLGud4G.jpg';'печенье с шоколадной крошкой';0
+4;530;160000;hershey_waffles;'https://i.imgur.com/LVKnwZz.jpg';'шоколадные вафли';0
+5;510;180000;raffaello;'https://i.imgur.com/jQxyROG.png';'кокосовые конфеты';0
