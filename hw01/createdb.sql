@@ -7,7 +7,7 @@ CREATE TABLE manufacturers (
 COPY manufacturers(
   "manufacturer_id",
   "manufacturer_name"
-) FROM '/var/lib/postgresql/data/manufacturers.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/manufacturers.csv' DELIMITER ';' CSV HEADER;
 
 -- #2
 CREATE TABLE categories (
@@ -18,7 +18,7 @@ CREATE TABLE categories (
 COPY categories(
   "category_id",
   "category_name"
-) FROM '/var/lib/postgresql/data/categories.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/categories.csv' DELIMITER ';' CSV HEADER;
 
 -- #3
 CREATE TABLE products (
@@ -33,7 +33,7 @@ COPY products(
   "manufacturer_id",
   "product_id",
   "product_name"
-) FROM '/var/lib/postgresql/data/products.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/products.csv' DELIMITER ';' CSV HEADER;
 
 -- #4
 CREATE TABLE stores (
@@ -44,7 +44,7 @@ CREATE TABLE stores (
 COPY stores(
   "store_id",
   "store_name"
-) FROM '/var/lib/postgresql/data/stores.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/stores.csv' DELIMITER ';' CSV HEADER;
 
 -- #5
 CREATE TABLE customers (
@@ -57,7 +57,7 @@ COPY customers(
   "customer_id",
   "customer_fname",
   "customer_lname"
-) FROM '/var/lib/postgresql/data/customers.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/customers.csv' DELIMITER ';' CSV HEADER;
 
 -- #6
 CREATE TABLE price_change (
@@ -70,7 +70,7 @@ COPY price_change(
   "product_id",
   "price_change_ts",
   "new_price"
-) FROM '/var/lib/postgresql/data/price_change.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/price_change.csv' DELIMITER ';' CSV HEADER;
 
 -- #7
 CREATE TABLE deliveries (
@@ -85,7 +85,7 @@ COPY deliveries(
   "product_id",
   "delivery_date",
   "product_count"
-) FROM '/var/lib/postgresql/data/deliveries.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/deliveries.csv' DELIMITER ';' CSV HEADER;
 
 -- #8
 CREATE TABLE purchases (
@@ -100,7 +100,7 @@ COPY purchases(
   "customer_id",
   "purchase_id",
   "purchase_date"
-) FROM '/var/lib/postgresql/data/purchases.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/purchases.csv' DELIMITER ';' CSV HEADER;
 
 -- #9
 CREATE TABLE purchase_items (
@@ -115,7 +115,7 @@ COPY purchase_items(
   "purchase_id",
   "product_count",
   "product_price"
-) FROM '/var/lib/postgresql/data/purchase_items.csv' DELIMITER ';' CSV HEADER;
+) FROM '/var/lib/postgresql/init-data/purchase_items.csv' DELIMITER ';' CSV HEADER;
 
 
 -- view for GMV

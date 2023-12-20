@@ -1,38 +1,36 @@
-version: "3.3"
+version: "3.9"
 
 services: # названия сервисов, которые будем использовать при запуске docker-compose
   postgres_master:
     container_name: postgres_master
-    image: postgres:15.2  # образ postgres
+    image: postgres:14.5  # образ postgres
     restart: always # всегда перезапускается в случае возникновения каких-то ошибок
-    environment: # переменные окружения (значения в файле .env)
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      PGDATA: ${PGDATA}
     volumes:
-      - .:/var/lib/postgresql/data # место для сохранения данных после остановки контейнера
-      - ./createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
+      - ./data:/var/lib/postgresql/data # место для сохранения данных после остановки контейнера
       - ./data-slave:/var/lib/postgresql/data-slave
+      - ./init-data:/var/lib/postgresql/init-data
       - ./init-script/config/postgres.conf:/etc/postgresql/postgresql.conf
       - ./init-script/config/pg_hba.conf:/etc/postgresql/pg_hba.conf
       - ./init-script:/etc/postgresql/init-script
+      - ./createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
     ports:
       - "127.0.0.1:5432:5432" # внешний порт : порт внутри контейнера
+    environment: # переменные окружения
+      POSTGRES_DB: "postgres"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
 
 
   postgres_slave:
     container_name: postgres_slave
-    image: postgres:15.2
+    image: postgres:14.5
     restart: always
-    environment:
-      POSTGRES_DB: ${POSTGRES_DB}
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      PGDATA: ${PGDATA}
     volumes:
       - ./data-slave:/var/lib/postgresql/data
       - ./init-script/config/postgres.conf:/etc/postgresql/postgresql.conf
       - ./init-script/config/pg_hba.conf:/etc/postgresql/pg_hba.conf
     ports:
       - "127.0.0.1:5433:5432"
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
